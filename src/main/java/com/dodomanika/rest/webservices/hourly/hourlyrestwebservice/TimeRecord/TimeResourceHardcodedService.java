@@ -36,4 +36,22 @@ public class TimeResourceHardcodedService {
                 .collect(Collectors.toList());
         /*return timeRecords;*/
     }
+
+    public TimeRecord deleteById(long id) {
+        TimeRecord timeRecord = findById(id);
+
+        if (timeRecord != null){
+            timeRecords.remove(timeRecord);
+        }
+        return timeRecord;
+    }
+
+    private TimeRecord findById(long id){
+        for (TimeRecord timeRecord: timeRecords){
+            if (timeRecord.getId() == id){
+                return timeRecord;
+            }
+        }
+        return null;
+    }
 }

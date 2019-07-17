@@ -1,10 +1,7 @@
 package com.dodomanika.rest.webservices.hourly.hourlyrestwebservice.TimeRecord;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,9 +12,16 @@ public class TimeRecordResource {
     @Autowired
     private TimeResourceHardcodedService timeRecordService;
 
-    @GetMapping("/users/{username}/dates/{date}")
+    @GetMapping("/users/{username}/dates/{date}/records")
     public List<TimeRecord> getAllTimeRecordsByDate(@PathVariable String username,
                                                     @PathVariable int date){
         return timeRecordService.findAllByDate(date);
+    }
+
+    @DeleteMapping("/users/{username}/dates/{date}/records/{id}")
+    public TimeRecord deleteTimeRecord(@PathVariable String username,
+                                       @PathVariable int date,
+                                       @PathVariable long id){
+        return timeRecordService.deleteById(id);
     }
 }
