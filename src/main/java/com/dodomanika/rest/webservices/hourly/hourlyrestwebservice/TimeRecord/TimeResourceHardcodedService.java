@@ -34,5 +34,6 @@ public class TimeResourceHardcodedService {
         return timeRecords.stream()
                 .filter(timeRecord -> formattedDate.equals(simpleDateFormat.format(timeRecord.getDate())))
                 .collect(Collectors.toList());
+        /*return timeRecords;*/
     }
 }
