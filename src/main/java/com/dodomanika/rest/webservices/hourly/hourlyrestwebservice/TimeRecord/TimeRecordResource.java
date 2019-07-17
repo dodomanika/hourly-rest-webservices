@@ -18,6 +18,13 @@ public class TimeRecordResource {
         return timeRecordService.findAllByDate(date);
     }
 
+    @GetMapping("/users/{username}/dates/{date}/records/{id}")
+    public TimeRecord getTimeRecord(@PathVariable String username,
+                                       @PathVariable int date,
+                                       @PathVariable long id){
+        return timeRecordService.findById(id);
+    }
+
     @DeleteMapping("/users/{username}/dates/{date}/records/{id}")
     public TimeRecord deleteTimeRecord(@PathVariable String username,
                                        @PathVariable int date,

@@ -46,7 +46,7 @@ public class TimeResourceHardcodedService {
         return timeRecord;
     }
 
-    private TimeRecord findById(long id){
+    public TimeRecord findById(long id){
         for (TimeRecord timeRecord: timeRecords){
             if (timeRecord.getId() == id){
                 return timeRecord;
