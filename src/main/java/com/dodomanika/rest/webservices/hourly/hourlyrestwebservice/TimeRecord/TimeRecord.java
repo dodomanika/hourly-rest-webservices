@@ -7,18 +7,18 @@ public class TimeRecord {
     private long id;
     private String username;
     private Date date;
-    private String taskName;
+    private String task;
     private Date startTime;
     private Date time;
 
     public TimeRecord() {
     }
 
-    public TimeRecord(long id, String username, Date date, String taskName, Date startTime, Date time) {
+    public TimeRecord(long id, String username, Date date, String task, Date startTime, Date time) {
         this.id = id;
         this.username = username;
         this.date = date;
-        this.taskName = taskName;
+        this.task = task;
         this.startTime = startTime;
         this.time = time;
     }
@@ -47,12 +47,12 @@ public class TimeRecord {
         this.date = date;
     }
 
-    public String getTaskName() {
-        return taskName;
+    public String getTask() {
+        return task;
     }
 
-    public void setTaskName(String taskName) {
-        this.taskName = taskName;
+    public void setTask(String task) {
+        this.task = task;
     }
 
     public Date getStartTime() {
