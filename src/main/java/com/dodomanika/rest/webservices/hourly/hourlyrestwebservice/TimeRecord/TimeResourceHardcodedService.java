@@ -54,4 +54,15 @@ public class TimeResourceHardcodedService {
         }
         return null;
     }
+
+    public TimeRecord save(TimeRecord timeRecord) {
+        if (timeRecord.getId() == -1){
+            timeRecord.setId(++idCounter);
+            timeRecords.add(timeRecord);
+        } else {
+            deleteById(timeRecord.getId());
+            timeRecords.add(timeRecord);
+        }
+        return timeRecord;
+    }
 }

@@ -1,8 +1,11 @@
 package com.dodomanika.rest.webservices.hourly.hourlyrestwebservice.TimeRecord;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -30,5 +33,24 @@ public class TimeRecordResource {
                                        @PathVariable int date,
                                        @PathVariable long id){
         return timeRecordService.deleteById(id);
+    }
+
+    @PostMapping("/users/{username}/dates/{date}/records")
+    public ResponseEntity<Void> updateTimeRecord(@PathVariable String username,
+                                       @PathVariable int date,
+                                       @RequestBody TimeRecord timeRecord){
+        TimeRecord createdRecord = timeRecordService.save(timeRecord);
+
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+                .buildAndExpand(createdRecord.getId()).toUri();
+        return ResponseEntity.created(uri).build();
+    }
+
+    @PutMapping("/users/{username}/dates/{date}/records/{id}")
+    public TimeRecord updateTimeRecord(@PathVariable String username,
+                                       @PathVariable int date,
+                                       @PathVariable long id,
+                                       @RequestBody TimeRecord timeRecord){
+        return timeRecordService.save(timeRecord);
     }
 }
