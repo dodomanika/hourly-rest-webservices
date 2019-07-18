@@ -9,12 +9,12 @@ public class TimeRecord {
     private Date date;
     private String task;
     private Date startTime;
-    private Date time;
+    private long time;
 
     public TimeRecord() {
     }
 
-    public TimeRecord(long id, String username, Date date, String task, Date startTime, Date time) {
+    public TimeRecord(long id, String username, Date date, String task, Date startTime, long time) {
         this.id = id;
         this.username = username;
         this.date = date;
@@ -63,11 +63,11 @@ public class TimeRecord {
         this.startTime = startTime;
     }
 
-    public Date getTime() {
+    public long getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(long time) {
         this.time = time;
     }
 

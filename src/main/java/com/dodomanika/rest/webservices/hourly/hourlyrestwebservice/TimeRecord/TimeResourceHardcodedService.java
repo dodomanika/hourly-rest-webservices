@@ -19,9 +19,9 @@ public class TimeResourceHardcodedService {
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 
     static {
-        timeRecords.add(new TimeRecord(++idCounter, "domi", new Date(), "Research on technologies", new Date(), new Date()));
-        timeRecords.add(new TimeRecord(++idCounter, "domi", new Date(), "Evaluate the Top Up functionality", new Date(), new Date()));
-        timeRecords.add(new TimeRecord(++idCounter, "domi", new Date(), "Write the Top Up functionality", new Date(), new Date()));
+        timeRecords.add(new TimeRecord(++idCounter, "domi", new Date(), "Research on technologies", new Date(), 1));
+        timeRecords.add(new TimeRecord(++idCounter, "domi", new Date(), "Evaluate the Top Up functionality", new Date(), 2));
+        timeRecords.add(new TimeRecord(++idCounter, "domi", new Date(), "Write the Top Up functionality", new Date(), 7));
     }
 
     public List<TimeRecord> findAllByDate(int dateFromToday){
@@ -34,7 +34,6 @@ public class TimeResourceHardcodedService {
         return timeRecords.stream()
                 .filter(timeRecord -> formattedDate.equals(simpleDateFormat.format(timeRecord.getDate())))
                 .collect(Collectors.toList());
-        /*return timeRecords;*/
     }
 
     public TimeRecord deleteById(long id) {
