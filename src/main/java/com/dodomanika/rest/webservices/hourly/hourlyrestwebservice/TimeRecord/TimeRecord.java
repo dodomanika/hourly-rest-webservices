@@ -9,18 +9,18 @@ public class TimeRecord {
     private Date date;
     private String task;
     private Date startTime;
-    private long time;
+    private long duration;
 
     public TimeRecord() {
     }
 
-    public TimeRecord(long id, String username, Date date, String task, Date startTime, long time) {
+    public TimeRecord(long id, String username, Date date, String task, Date startTime, long duration) {
         this.id = id;
         this.username = username;
         this.date = date;
         this.task = task;
         this.startTime = startTime;
-        this.time = time;
+        this.duration = duration;
     }
 
     public long getId() {
@@ -63,12 +63,12 @@ public class TimeRecord {
         this.startTime = startTime;
     }
 
-    public long getTime() {
-        return time;
+    public long getDuration() {
+        return duration;
     }
 
-    public void setTime(long time) {
-        this.time = time;
+    public void setDuration(long duration) {
+        this.duration = duration;
     }
 
     @Override
