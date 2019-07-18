@@ -19,9 +19,9 @@ public class TimeResourceHardcodedService {
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 
     static {
-        timeRecords.add(new TimeRecord(++idCounter, "domi", new Date(), "Research on technologies", new Date(), 1));
-        timeRecords.add(new TimeRecord(++idCounter, "domi", new Date(), "Evaluate the Top Up functionality", new Date(), 2));
-        timeRecords.add(new TimeRecord(++idCounter, "domi", new Date(), "Write the Top Up functionality", new Date(), 7));
+        timeRecords.add(new TimeRecord(++idCounter, "domi", new Date(), "Research on technologies", "11:02", 1));
+        timeRecords.add(new TimeRecord(++idCounter, "domi", new Date(), "Evaluate the Top Up functionality", "13:00", 2));
+        timeRecords.add(new TimeRecord(++idCounter, "domi", new Date(), "Write the Top Up functionality", "10:10", 7));
     }
 
     public List<TimeRecord> findAllByDate(int dateFromToday){

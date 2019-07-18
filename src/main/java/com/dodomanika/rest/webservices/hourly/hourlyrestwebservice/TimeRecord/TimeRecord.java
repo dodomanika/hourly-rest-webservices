@@ -8,13 +8,13 @@ public class TimeRecord {
     private String username;
     private Date date;
     private String task;
-    private Date startTime;
+    private String startTime;
     private long duration;
 
     public TimeRecord() {
     }
 
-    public TimeRecord(long id, String username, Date date, String task, Date startTime, long duration) {
+    public TimeRecord(long id, String username, Date date, String task, String startTime, long duration) {
         this.id = id;
         this.username = username;
         this.date = date;
@@ -55,11 +55,11 @@ public class TimeRecord {
         this.task = task;
     }
 
-    public Date getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Date startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
