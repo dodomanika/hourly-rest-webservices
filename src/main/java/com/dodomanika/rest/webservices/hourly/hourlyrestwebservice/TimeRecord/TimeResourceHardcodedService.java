@@ -3,10 +3,7 @@ package com.dodomanika.rest.webservices.hourly.hourlyrestwebservice.TimeRecord;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -54,9 +51,30 @@ public class TimeResourceHardcodedService {
         return null;
     }
 
-    public TimeRecord save(TimeRecord timeRecord) {
+    public TimeRecord save(int dateFromToday, TimeRecord timeRecord) {
         if (timeRecord.getId() == -1){
+            Calendar calendar = Calendar.getInstance();
+            calendar.add(Calendar.DAY_OF_MONTH, dateFromToday);
+            Date dateFromRequest = calendar.getTime();
+
+            /*String formattedDate = simpleDateFormat.format(dateFromRequest);
+
+            Date date = null;
+            try {
+                date = simpleDateFormat.parse(String.valueOf(new Date()));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            try {
+                date = simpleDateFormat.parse(formattedDate);
+
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }*/
+
+
             timeRecord.setId(++idCounter);
+            timeRecord.setDate(dateFromRequest);
             timeRecords.add(timeRecord);
         } else {
             deleteById(timeRecord.getId());

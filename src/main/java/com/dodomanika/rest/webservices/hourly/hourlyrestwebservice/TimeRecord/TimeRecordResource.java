@@ -39,7 +39,7 @@ public class TimeRecordResource {
     public ResponseEntity<Void> updateTimeRecord(@PathVariable String username,
                                        @PathVariable int date,
                                        @RequestBody TimeRecord timeRecord){
-        TimeRecord createdRecord = timeRecordService.save(timeRecord);
+        TimeRecord createdRecord = timeRecordService.save(date, timeRecord);
 
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(createdRecord.getId()).toUri();
@@ -51,6 +51,6 @@ public class TimeRecordResource {
                                        @PathVariable int date,
                                        @PathVariable long id,
                                        @RequestBody TimeRecord timeRecord){
-        return timeRecordService.save(timeRecord);
+        return timeRecordService.save(date, timeRecord);
     }
 }
