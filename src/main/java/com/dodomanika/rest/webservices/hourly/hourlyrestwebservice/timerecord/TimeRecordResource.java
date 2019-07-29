@@ -1,4 +1,4 @@
-package com.dodomanika.rest.webservices.hourly.hourlyrestwebservice.TimeRecord;
+package com.dodomanika.rest.webservices.hourly.hourlyrestwebservice.timerecord;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

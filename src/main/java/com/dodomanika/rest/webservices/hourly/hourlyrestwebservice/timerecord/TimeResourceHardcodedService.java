@@ -1,4 +1,4 @@
-package com.dodomanika.rest.webservices.hourly.hourlyrestwebservice.TimeRecord;
+package com.dodomanika.rest.webservices.hourly.hourlyrestwebservice.timerecord;
 
 import org.springframework.stereotype.Service;
 
