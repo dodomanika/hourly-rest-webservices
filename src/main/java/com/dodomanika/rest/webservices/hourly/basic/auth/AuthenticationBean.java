@@ -1,4 +1,4 @@
-package com.dodomanika.rest.webservices.hourly.hourlyrestwebservice.basic.auth;
+package com.dodomanika.rest.webservices.hourly.basic.auth;
 
 public class AuthenticationBean {
     String message;

@@ -1,4 +1,4 @@
-package com.dodomanika.rest.webservices.hourly.hourlyrestwebservice.basic.auth;
+package com.dodomanika.rest.webservices.hourly.basic.auth;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
