@@ -46,7 +46,9 @@ public class TimeRecordController {
     public ResponseEntity<Void> updateTimeRecord(@PathVariable String username,
                                        @PathVariable int date,
                                        @RequestBody TimeRecord timeRecord){
-        TimeRecord createdRecord = timeRecordService.save(date, timeRecord);
+        LocalDate day = LocalDate.now().plusDays(date);
+        timeRecord.setDate(day);
+        TimeRecord createdRecord = repository.save(timeRecord);
 
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(createdRecord.getId()).toUri();
