@@ -1,10 +1,17 @@
 package com.dodomanika.rest.webservices.hourly.hourlyrestwebservice.timerecord;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.Date;
 import java.util.Objects;
 
+@Entity
 public class TimeRecord {
-    private long id;
+    @Id
+    @GeneratedValue
+    private Long id;
+
     private String username;
     private Date date;
     private String task;
@@ -23,11 +30,11 @@ public class TimeRecord {
         this.duration = duration;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -76,7 +83,7 @@ public class TimeRecord {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TimeRecord that = (TimeRecord) o;
-        return id == that.id;
+        return Objects.equals(id, that.id);
     }
 
     @Override
