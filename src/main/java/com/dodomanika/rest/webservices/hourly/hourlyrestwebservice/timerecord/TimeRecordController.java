@@ -15,9 +15,6 @@ import java.util.Optional;
 public class TimeRecordController {
 
     @Autowired
-    private TimeResourceHardcodedService timeRecordService;
-
-    @Autowired
     private TimeRecordRepository repository;
 
     @GetMapping("/users/{username}/dates/{date}/records")
