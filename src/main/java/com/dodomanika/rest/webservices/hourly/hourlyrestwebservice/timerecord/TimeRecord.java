@@ -3,7 +3,7 @@ package com.dodomanika.rest.webservices.hourly.hourlyrestwebservice.timerecord;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
@@ -13,7 +13,7 @@ public class TimeRecord {
     private Long id;
 
     private String username;
-    private Date date;
+    private LocalDate date;
     private String task;
     private String startTime;
     private long duration;
@@ -21,7 +21,7 @@ public class TimeRecord {
     public TimeRecord() {
     }
 
-    public TimeRecord(long id, String username, Date date, String task, String startTime, long duration) {
+    public TimeRecord(Long id, String username, LocalDate date, String task, String startTime, long duration) {
         this.id = id;
         this.username = username;
         this.date = date;
@@ -46,11 +46,11 @@ public class TimeRecord {
         this.username = username;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
