@@ -1,5 +1,6 @@
 package com.dodomanika.rest.webservices.hourly.hourlyrestwebservice.jwt;
 
+import com.dodomanika.rest.webservices.hourly.hourlyrestwebservice.user.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -18,13 +19,13 @@ public class JwtUserDetails implements UserDetails {
     private final String password;
     private final Collection<? extends GrantedAuthority> authorities;
 
-    public JwtUserDetails(Long id, String username, String password, String role) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
+    public JwtUserDetails(User user) {
+        this.id = user.getId();
+        this.username = user.getUsername();
+        this.password = user.getPassword();
 
         List<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
-        authorities.add(new SimpleGrantedAuthority(role));
+        authorities.add(new SimpleGrantedAuthority(user.getRole()));
 
         this.authorities = authorities;
     }
