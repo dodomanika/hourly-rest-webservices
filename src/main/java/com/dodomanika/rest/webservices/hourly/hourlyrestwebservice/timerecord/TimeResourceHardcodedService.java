@@ -3,6 +3,7 @@ package com.dodomanika.rest.webservices.hourly.hourlyrestwebservice.timerecord;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -16,20 +17,23 @@ public class TimeResourceHardcodedService {
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 
     static {
-        timeRecords.add(new TimeRecord(++idCounter, "domi", new Date(), "Research on technologies", "11:02", 1));
-        timeRecords.add(new TimeRecord(++idCounter, "domi", new Date(), "Evaluate the Top Up functionality", "13:00", 2));
-        timeRecords.add(new TimeRecord(++idCounter, "domi", new Date(), "Write the Top Up functionality", "10:10", 7));
+        timeRecords.add(new TimeRecord(++idCounter, "in28minutes", LocalDate.now(), "Research on technologies", "11:02", 1));
+        timeRecords.add(new TimeRecord(++idCounter, "in28minutes", LocalDate.now(), "Evaluate the Top Up functionality", "13:00", 2));
+        timeRecords.add(new TimeRecord(++idCounter, "in28minutes", LocalDate.now(), "Write the Top Up functionality", "10:10", 7));
     }
 
     public List<TimeRecord> findAllByDate(int dateFromToday){
 
-        Calendar calendar = Calendar.getInstance();
+        /*Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DAY_OF_MONTH, dateFromToday);
-        Date dateFromRequest = calendar.getTime();
+        Date dateFromRequest = calendar.getTime();*/
 
-        String formattedDate = simpleDateFormat.format(dateFromRequest);
+
+        LocalDate date = LocalDate.now().plusDays(dateFromToday);
+
+        /*String formattedDate = simpleDateFormat.format(dateFromRequest);*/
         return timeRecords.stream()
-                .filter(timeRecord -> formattedDate.equals(simpleDateFormat.format(timeRecord.getDate())))
+                .filter(timeRecord -> timeRecord.getDate().equals(date))
                 .collect(Collectors.toList());
     }
 
@@ -53,9 +57,11 @@ public class TimeResourceHardcodedService {
 
     public TimeRecord save(int dateFromToday, TimeRecord timeRecord) {
         if (timeRecord.getId() == -1){
-            Calendar calendar = Calendar.getInstance();
+            /*Calendar calendar = Calendar.getInstance();
             calendar.add(Calendar.DAY_OF_MONTH, dateFromToday);
-            Date dateFromRequest = calendar.getTime();
+            Date dateFromRequest = calendar.getTime();*/
+
+            LocalDate date = LocalDate.now().plusDays(dateFromToday);
 
             /*String formattedDate = simpleDateFormat.format(dateFromRequest);
 
@@ -74,7 +80,7 @@ public class TimeResourceHardcodedService {
 
 
             timeRecord.setId(++idCounter);
-            timeRecord.setDate(dateFromRequest);
+            timeRecord.setDate(date);
             timeRecords.add(timeRecord);
         } else {
             deleteById(timeRecord.getId());
