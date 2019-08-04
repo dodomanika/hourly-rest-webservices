@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -15,17 +17,22 @@ public class TimeRecordController {
     @Autowired
     private TimeResourceHardcodedService timeRecordService;
 
+    @Autowired
+    private TimeRecordRepository repository;
+
     @GetMapping("/users/{username}/dates/{date}/records")
     public List<TimeRecord> getAllTimeRecordsByDate(@PathVariable String username,
                                                     @PathVariable int date){
-        return timeRecordService.findAllByDate(date);
+        LocalDate day = LocalDate.now().plusDays(date);
+
+        return repository.findAllByDate(day);
     }
 
     @GetMapping("/users/{username}/dates/{date}/records/{id}")
-    public TimeRecord getTimeRecord(@PathVariable String username,
-                                       @PathVariable int date,
-                                       @PathVariable long id){
-        return timeRecordService.findById(id);
+    public Optional<TimeRecord> getTimeRecord(@PathVariable String username,
+                                              @PathVariable int date,
+                                              @PathVariable long id){
+        return repository.findById(Long.valueOf(id));
     }
 
     @DeleteMapping("/users/{username}/dates/{date}/records/{id}")
