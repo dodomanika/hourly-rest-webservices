@@ -58,6 +58,8 @@ public class TimeRecordController {
                                        @PathVariable int date,
                                        @PathVariable long id,
                                        @RequestBody TimeRecord timeRecord){
-        return timeRecordService.save(date, timeRecord);
+        LocalDate day = LocalDate.now().plusDays(date);
+        timeRecord.setDate(day);
+        return repository.save(timeRecord);
     }
 }
