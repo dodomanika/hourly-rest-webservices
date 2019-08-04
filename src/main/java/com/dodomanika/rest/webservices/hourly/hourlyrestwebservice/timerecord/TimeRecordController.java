@@ -10,7 +10,7 @@ import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-public class TimeRecordResource {
+public class TimeRecordController {
 
     @Autowired
     private TimeResourceHardcodedService timeRecordService;
