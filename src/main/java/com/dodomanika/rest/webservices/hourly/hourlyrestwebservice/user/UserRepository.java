@@ -1,6 +1,5 @@
-package com.dodomanika.rest.webservices.hourly.hourlyrestwebservice;
+package com.dodomanika.rest.webservices.hourly.hourlyrestwebservice.user;
 
-import com.dodomanika.rest.webservices.hourly.hourlyrestwebservice.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
