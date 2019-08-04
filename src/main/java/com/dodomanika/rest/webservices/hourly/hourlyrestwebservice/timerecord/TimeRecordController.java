@@ -36,10 +36,10 @@ public class TimeRecordController {
     }
 
     @DeleteMapping("/users/{username}/dates/{date}/records/{id}")
-    public TimeRecord deleteTimeRecord(@PathVariable String username,
+    public void deleteTimeRecord(@PathVariable String username,
                                        @PathVariable int date,
                                        @PathVariable long id){
-        return timeRecordService.deleteById(id);
+        repository.deleteById(Long.valueOf(id));
     }
 
     @PostMapping("/users/{username}/dates/{date}/records")
