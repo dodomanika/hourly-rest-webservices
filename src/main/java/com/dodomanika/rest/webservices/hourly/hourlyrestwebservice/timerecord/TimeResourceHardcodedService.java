@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 public class TimeResourceHardcodedService {
 
     private static List<TimeRecord> timeRecords = new ArrayList<>();
-    private static int idCounter = 0;
+    private static long idCounter = 0;
 
     String pattern = "yyyy-MM-dd";
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
