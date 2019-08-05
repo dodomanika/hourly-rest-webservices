@@ -8,4 +8,4 @@ insert into time_record(id, username, date, task, start_time, duration)
 values(10003, 'in28minutes', sysdate(), 'Estimate functionality', '10:12', 3);
 
 insert into user(id, username, password, role)
-values(100001, 'in28minutes', 'dummy', 'ROLE_USER_2');
+values(100001, 'in28minutes', '$2a$10$AOEuSGnS/YExixnfYSGg3uz8pS8clSQr4C1/kxFrLIe7iZMPZ2UyK', 'ROLE_USER_2');
